@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#Set timer
+T=$(date +%s)
+
+#Add some color
+. ~/SCR/color
+
+#Animation sprites
+sprite=( "(* )  ( *)" " ( *)(* ) " " ( *)(* ) " "( *)  (* )" "(* )  ( *)" )
+
+#Print empty line and hide cursor
+printf "\n${COF}"
+
+#Exit function
+function bye { printf "${CON}"; [ -e /proc/$pid ] && kill -9 $pid; exit; }; trap bye INT
+
+#Run our command and get its pid
+"$@" & pid=$!
+
+#Waiting animation
+i=0; while [ -e /proc/$pid ]; do sleep 0.1
+
+	printf "\r${GRN}Please wait... ${YLW}${sprite[$i]}${DEF}"
+	((i++)); [[ $i = ${#sprite[@]} ]] && i=0
+
+done
+
+#Print time and exit
+T=$(($(date +%s)-$T))
+printf "\n\nTime taken: $(date -u -d @${T} +'%T')\n"
+
+bye
