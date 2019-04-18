@@ -7,7 +7,7 @@ T=$(date +%s)
 . ~/SCR/color
 
 #Animation sprites
-sprite=( "(* )  ( *)" " ( *)(* ) " " ( *)(* ) " "( *)  (* )" "(* )  ( *)" )
+sprite=( "(* )  ( *)" " (* )( *) " " ( *)(* ) " "( *)  (* )" "(* )  ( *)" )
 
 #Print empty line and hide cursor
 printf "\n${COF}"
