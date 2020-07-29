@@ -7,7 +7,12 @@ T=$(date +%s)
 . ~/SCR/color
 
 #Animation sprites
-sprite=( "(* )  ( *)" " (* )( *) " " ( *)(* ) " "( *)  (* )" "(* )  ( *)" )
+sprite=(
+    "$YLW($RED* $YLW)  ( $RED*$YLW)"
+    "$YLW ($RED* $YLW)( $RED*$YLW) "
+    "$YLW ( $RED*$YLW)($RED* $YLW) "
+    "$YLW( $RED*$YLW)  ($RED* $YLW)"
+    "$YLW($RED* $YLW)  ( $RED*$YLW)")
 
 #Print empty line and hide cursor
 printf "\n${COF}"
@@ -20,10 +25,8 @@ function bye { printf "${CON}"; [ -e /proc/$pid ] && kill -9 $pid; exit; }; trap
 
 #Waiting animation
 i=0; while [ -e /proc/$pid ]; do sleep 0.1
-
-	printf "\r${GRN}Please wait... ${YLW}${sprite[$i]}${DEF}"
+	printf "\r${GRN}Please wait... ${sprite[$i]}$DEF"
 	((i++)); [[ $i = ${#sprite[@]} ]] && i=0
-
 done
 
 #Print time and exit
