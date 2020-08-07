@@ -10,7 +10,8 @@ T=$(date +%s)
 sprite=(
     "$YLW($RED* $YLW)  ( $RED*$YLW)"
     "$YLW ($RED* $YLW)( $RED*$YLW) "
-    "$YLW ( $RED*$YLW)($RED* $YLW) "
+    "$YLW ( $RED*$YLW||$RED*$YLW ) "
+    "$YLW  ($RED*$YLW||$RED*$YLW) "
     "$YLW( $RED*$YLW)  ($RED* $YLW)"
     "$YLW($RED* $YLW)  ( $RED*$YLW)")
 
