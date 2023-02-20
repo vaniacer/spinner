@@ -1,4 +1,4 @@
-# Spiner
+# Spinner
 Small bash script adding waiting animation to a long process, for example
 <pre>
 cp big_file
