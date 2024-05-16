@@ -1,10 +1,13 @@
 #!/bin/bash
-
-#Set timer
-T=$(date +%s)
-
 #Add some color
-. ~/SCR/color
+RED='\e[31m'
+GRN='\e[32m'
+grn='\e[92m'
+YLW='\e[33m'
+DEF='\e[0m'   #Default color and effects
+BLD='\e[1m'   #Bold\brighter
+COF='\e[?25l' #Cursor Off
+CON='\e[?25h' #Cursor On
 
 #Animation sprites
 sprite=(
@@ -13,25 +16,23 @@ sprite=(
     "$YLW ( $RED*$YLW||$RED*$YLW ) "
     "$YLW  ($RED*$YLW||$RED*$YLW) "
     "$YLW( $RED*$YLW)  ($RED* $YLW)"
-    "$YLW($RED* $YLW)  ( $RED*$YLW)")
+    "$YLW($RED* $YLW)  ( $RED*$YLW)"
+);  N=${#sprite[@]}
 
 #Print empty line and hide cursor
 printf "\n${COF}"
 
 #Exit function
-function bye { printf "${CON}"; [ -e /proc/$pid ] && kill -9 $pid; exit; }; trap bye INT
+bye(){ printf "${CON}"; [[ -e /proc/$pid ]] && kill -9 $pid; exit; }; trap bye INT
 
 #Run our command and get its pid
 "$@" & pid=$!
 
 #Waiting animation
-i=0; while [ -e /proc/$pid ]; do sleep 0.1
-	printf "\r${GRN}Please wait... ${sprite[$i]}$DEF"
-	((i++)); [[ $i = ${#sprite[@]} ]] && i=0
+while [[ -e /proc/$pid ]]; do
+    sleep 0.1
+    ((i++)); ((i==N)) && i=0
+    h=$((SECONDS/3600)) m=$((SECONDS%3600/60)) s=$((SECONDS%60))
+    printf "\r$DEF${GRN}Please wait $grn[%d:%d:%d] $BLD${sprite[$i]}$DEF" $h $m $s
 done
-
-#Print time and exit
-T=$(($(date +%s)-$T))
-printf "\n\nTime taken: $(date -u -d @${T} +'%T')\n"
-
 bye
