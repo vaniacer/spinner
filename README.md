@@ -7,6 +7,8 @@ cp big_file
 ![screeenshot](https://user-images.githubusercontent.com/18072680/89615546-89150300-d88f-11ea-893b-d8f85d438ce1.gif)
 </br>Looped animation)</br>
 ![screeenshot](https://user-images.githubusercontent.com/18072680/89615550-89ad9980-d88f-11ea-9130-9d591f631c71.gif)
+</br>New animation)</br>
+![spinner](https://github.com/user-attachments/assets/1c5b35ed-2182-42ec-94f8-5f15dc657d97)
 
 <a href="https://t.me/sshtobash"><img src="https://telegram.org/img/website_icon.svg" width="21"></a>
 [![Twitter Follow](https://img.shields.io/twitter/follow/Vaniacer?style=social)](https://twitter.com/Vaniacer)
