@@ -13,9 +13,9 @@ CON='\e[?25h' #Cursor On
 sprite=(
     "$YLW($RED* $YLW)  ( $RED*$YLW)"
     "$YLW ($RED* $YLW)( $RED*$YLW) "
-    "$YLW ( $RED*$YLW||$RED*$YLW ) "
-    "$YLW  ($RED*$YLW||$RED*$YLW) "
-    "$YLW( $RED*$YLW)  ($RED* $YLW)"
+    "$YLW  ($RED*${YLW}Y$RED*$YLW)  "
+    "$YLW  ($RED*$YLW|$RED*$YLW) "
+    "$YLW ( $RED*$YLW)($RED* $YLW)"
     "$YLW($RED* $YLW)  ( $RED*$YLW)"
 );  N=${#sprite[@]}
 
